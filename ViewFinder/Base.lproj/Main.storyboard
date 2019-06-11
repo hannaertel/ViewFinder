@@ -33,19 +33,15 @@
                             <outlet property="delegate" destination="6c0-lf-wAt" id="mKP-9r-0jB"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="ViewFinder" id="4Fy-sX-Tie">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="CRl-VY-tHJ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q09-Yx-wsl">
-                                <rect key="frame" x="302" y="0.0" width="92" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="+"/>
-                                <connections>
-                                    <segue destination="k3K-wv-Lvj" kind="show" id="qD4-mS-Da1"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="nDY-Xu-ebx">
+                            <connections>
+                                <segue destination="k3K-wv-Lvj" kind="show" id="uaY-Vl-uVp"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFl-ed-xhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -54,12 +50,12 @@
         <!--Add New Photo-->
         <scene sceneID="S5R-iU-N4d">
             <objects>
-                <viewController id="k3K-wv-Lvj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Sfk-OO-Cnv">
+                <viewController id="k3K-wv-Lvj" customClass="NewPhotoViewController" customModule="ViewFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sfk-OO-Cnv" customClass="AddPhotoViewController">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kkK-zV-UFt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Hydro-Flask-Stainless-Steel-Vacuum-Insulated-21-oz-Standard-Mouth-Sport-Cap-Frost" translatesAutoresizingMaskIntoConstraints="NO" id="kkK-zV-UFt">
                                 <rect key="frame" x="69" y="118" width="276" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -70,17 +66,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDv-mH-bhu">
-                                <rect key="frame" x="66" y="318" width="112" height="124"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Camera"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5VH-Ok-ZLO">
                                 <rect key="frame" x="199" y="318" width="188" height="124"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Photo Library"/>
+                                <connections>
+                                    <action selector="openPhotoLibrary:" destination="k3K-wv-Lvj" eventType="touchUpInside" id="8NS-C6-3Lp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrX-st-hO0">
                                 <rect key="frame" x="240" y="450" width="105" height="124"/>
@@ -94,11 +87,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Save"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDv-mH-bhu">
+                                <rect key="frame" x="62" y="319" width="112" height="124"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="openCamera:" destination="Sfk-OO-Cnv" eventType="touchUpInside" id="Yhf-iL-2hj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7lg-0f-l02"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Photo" id="iHf-Kt-oBS"/>
+                    <navigationItem key="navigationItem" title="Add New Photo" id="iHf-Kt-oBS">
+                        <barButtonItem key="backBarButtonItem" title="Back " id="HCY-cA-QqG"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="newPhoto" destination="kkK-zV-UFt" id="aX7-uj-POA"/>
+                        <outlet property="newText" destination="Mat-qS-elo" id="MgU-Og-4P1"/>
+                        <outlet property="photoOutlet" destination="nDv-mH-bhu" id="HvB-nx-fn5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NM9-d1-JJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,4 +132,7 @@
             <point key="canvasLocation" x="110.14492753623189" y="148.66071428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Hydro-Flask-Stainless-Steel-Vacuum-Insulated-21-oz-Standard-Mouth-Sport-Cap-Frost" width="804" height="1282"/>
+    </resources>
 </document>
